@@ -38,12 +38,15 @@ function play(reponse) {
 		if (reponse < solution){
 			texte = "Non " + reponse +"  est trop petit";
 		}
-		if (reponse == solution){  			// exo une autre partie
+		if (reponse == solution){  			// exo une autre partie //
 		  var oui = confirm("Gagné, une autre partie ?");
-			 	if (oui){				// fin exo
-			texte = "C'est gagné !";
+			 	if (oui){				// fin exo //
 			max += 100;
-			solution = Math.floor(Math.random() * max);
+			texte = "Nouvelle partie max = "+max;
+			solution = Math.floor(Math.random() * max);			// suite code vider liste exo //
+			for (var i = 0; i < compteur ; i ++);
+				{suppLigne()};
+			compteur = 0;				// fin //
 			initjeu();
 		} 				// exo 1 nouvelle partie suite du code //
 		else {
@@ -53,6 +56,18 @@ function play(reponse) {
 	}
 	newligne(texte);
 }
+		// effacer le div 'repList' exercice //
+function suppLigne() {
+	var para = document.getElementById("repLst");
+	var element = document.getElementById("repLst").querySelector("p");
+
+	var poubelle = para.removeChild(element);
+}
+
+var compteur=0;
+
+		// fin code exercice div //
+
 function newTry() {
 
 	if (solution == undefined) {
@@ -68,8 +83,6 @@ function newTry() {
 }
 
 initjeu();
-
-
 
 
 // modifications à apporter : //
